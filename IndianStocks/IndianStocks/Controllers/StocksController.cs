@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using BusinessAccess;
 using BusinessEntity;
 using System.Web.Http;
+using System.Text;
+using System.Net.Http;
+using System.Net;
 
 namespace IndianStocks.Areas.Investment.Controllers
 {
@@ -26,7 +29,7 @@ namespace IndianStocks.Areas.Investment.Controllers
         //    return lsp;          
         //}
 
-        public List<StockPurchases> GetStocks()
+        public HttpResponseMessage GetStocks()
         {
             DateTime fromdate = DateTime.Now.AddDays(-30).Date;
             DateTime todate = DateTime.Now.Date;
@@ -34,7 +37,12 @@ namespace IndianStocks.Areas.Investment.Controllers
             StocksBusinessAccess fs = new StocksBusinessAccess();
             List<StockPurchases> lsp = new List<StockPurchases>();
             lsp = fs.ToGetStocks(fromdate, todate);
-            return lsp;
+            //return lsp;
+            var response = Request.CreateResponse(HttpStatusCode.OK, lsp);
+            //response.Content = new StringContent(lsp, Encoding.UTF8, "application/json");
+            //return response;
+
+            return response;
         }
         public ActionResult StocksSold()
         {

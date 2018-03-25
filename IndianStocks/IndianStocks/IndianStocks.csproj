@@ -163,7 +163,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Areas\Investment\InvestmentAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Areas\Investment\Controllers\StocksController.cs" />
+    <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -290,6 +290,7 @@
     <Folder Include="Areas\Accounts\Controllers\" />
     <Folder Include="Areas\Accounts\Models\" />
     <Folder Include="Areas\Accounts\Views\Shared\" />
+    <Folder Include="Areas\Investment\Controllers\" />
     <Folder Include="Areas\Investment\Models\" />
     <Folder Include="Areas\Investment\Views\Shared\" />
     <Folder Include="Models\" />
@@ -325,7 +326,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59764</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51560/</IISUrl>
+          <IISUrl>http://localhost:51564/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
