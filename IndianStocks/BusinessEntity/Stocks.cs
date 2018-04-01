@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace BusinessEntity
 {
-    public class StocksDesign
+    public class StocksRequest
     {
+        public DateTime FromDate { get; set; }
+        public DateTime ToDate { get; set; }
     }
+
     public class StockPurchases
     {
         public string StocksId { get; set; }

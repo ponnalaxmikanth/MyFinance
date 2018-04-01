@@ -17,45 +17,26 @@ namespace IndianStocks.Areas.Investment.Controllers
         //
         // GET: /Investment/Stocks/
 
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-        //public List<StockPurchases> GetStocks(DateTime fromdate, DateTime todate)
-        //{  
-        //    StocksBusinessAccess fs= new StocksBusinessAccess();
-        //    List<StockPurchases> lsp = new List<StockPurchases>();
-        //    lsp=fs.ToGetStocks(fromdate,todate);
-        //    return lsp;          
-        //}
-
-        public HttpResponseMessage GetStocks()
+        public HttpResponseMessage post(StocksRequest request)
         {
-            DateTime fromdate = DateTime.Now.AddDays(-30).Date;
-            DateTime todate = DateTime.Now.Date;
-
             StocksBusinessAccess fs = new StocksBusinessAccess();
             List<StockPurchases> lsp = new List<StockPurchases>();
-            lsp = fs.ToGetStocks(fromdate, todate);
-            //return lsp;
-            var response = Request.CreateResponse(HttpStatusCode.OK, lsp);
-            //response.Content = new StringContent(lsp, Encoding.UTF8, "application/json");
-            //return response;
+            lsp = fs.ToGetStocks(request.FromDate, request.ToDate);
+            return Request.CreateResponse(HttpStatusCode.OK, lsp);
+        }
 
-            return response;
-        }
-        public ActionResult StocksSold()
-        {
-        return null;
-        }        
-        public ActionResult PurchaseStocks()
-        {
-         return null;
-        }
-        public ActionResult DividendStocks()
-       {
-         return null;
-       }
+       // public ActionResult StocksSold()
+       // {
+       // return null;
+       // }        
+       // public ActionResult PurchaseStocks()
+       // {
+       //  return null;
+       // }
+       // public ActionResult DividendStocks()
+       //{
+       //  return null;
+       //}
        
     }
 }
